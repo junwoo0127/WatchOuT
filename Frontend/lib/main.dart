@@ -205,6 +205,10 @@ Future<void> refreshUsage() async {
   SharedPreferences pref = await SharedPreferences.getInstance();
   pref.reload();
   Future<int> count = initUsage();
+  if (!pref.getBool("useScreen")!) {
+    wm.Workmanager().cancelByUniqueName(locationCheck);
+    return;
+  }
   // await sendEmergencyMessage();
   count.then((value) async {
     debugPrint('24시간 이내에 사용한 앱 갯수 : $value');
@@ -268,10 +272,10 @@ Future<void> sendSMS(String message, List<String> recipients) async {
     SmsStatus result = await BackgroundSms.sendMessage(
         phoneNumber: recipient, message: message);
     if (result == SmsStatus.failed) {
-      print('failed');
+      debugPrint('failed');
     }
   }
-  print('success');
+  debugPrint('success');
 }
 
 @pragma('vm:entry-point')
@@ -302,14 +306,14 @@ Future<void> prepareMessage() async {
     message =
         "${preferences.getString('username')} 님이 24시간 동안 응답이 없습니다.\n현재 예상 위치 : $address";
     if (recipients.isNotEmpty) {
-      print(message);
-      print(recipients);
+      debugPrint(message);
+      debugPrint(recipients.toString());
       await sendSMS(message, recipients); //테스트할때는 문자전송 막아놈
     }
     message = "캠 입장 코드 : $homecamAccessCode\n캠은 워치아웃 앱에서 확인하실 수 있습니다.";
     if (recipients.isNotEmpty) {
-      print(message);
-      print(recipients);
+      debugPrint(message);
+      debugPrint(recipients.toString());
       messageIsSent = true;
       await sendSMS(message, recipients); //테스트할때는 문자전송 막아놈
     }
@@ -318,8 +322,8 @@ Future<void> prepareMessage() async {
     message =
         "${preferences.getString('username')} 님이 24시간 동안 응답이 없습니다.\n현재 예상 위치 : $address";
     if (recipients.isNotEmpty) {
-      print(message);
-      print(recipients);
+      debugPrint(message);
+      debugPrint(recipients.toString());
       messageIsSent = true;
       await sendSMS(message, recipients); //테스트할때는 문자전송 막아놈
     }
@@ -327,8 +331,8 @@ Future<void> prepareMessage() async {
     message =
         "${preferences.getString('username')} 님이 24시간 동안 응답이 없습니다.\n현재 예상 위도 : $initLat\n현재 예상 경도 : $initLon";
     if (recipients.isNotEmpty) {
-      print(message);
-      print(recipients);
+      debugPrint(message);
+      debugPrint(recipients.toString());
       messageIsSent = true;
       await sendSMS(message, recipients);
     }

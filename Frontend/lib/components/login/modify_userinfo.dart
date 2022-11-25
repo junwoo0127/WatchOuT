@@ -49,11 +49,11 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
       final user = _authentication.currentUser;
       if (user != null) {
         loggedUser = user;
-        print("sign_up.dart에서 user 정보를 잘 받아왔습니다.");
+        debugPrint("sign_up.dart에서 user 정보를 잘 받아왔습니다.");
         String address = Provider.of<MyUserInfo>(context, listen: false).region;
         this.postCode = address.substring(1, 6);
         this.region = address.substring(8);
-        print('지역: $this.region');
+        debugPrint('지역: $this.region');
         this.latitude =
             Provider.of<MyUserInfo>(context, listen: false).latitude;
         this.longitude =
@@ -62,7 +62,7 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
             Provider.of<MyUserInfo>(context, listen: false).profileImage;
       }
     } catch (e) {
-      print("sign_up.dart에서 유저 정보를 받아오지 못했습니다.");
+      debugPrint("sign_up.dart에서 유저 정보를 받아오지 못했습니다.");
     }
   }
 
@@ -76,7 +76,7 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
 
   Future<void> _update() async {
     _SignupKey.currentState!.save();
-    db.collection("user").doc("${loggedUser!.uid}").update({
+    await db.collection("user").doc("${loggedUser!.uid}").update({
       "phone": _phone,
       "region": '(${this.postCode}) ${this.region}',
       "latitude": '${this.latitude}',
@@ -349,7 +349,7 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
                 ),
                 onChanged: (number) {
                   _phone = number;
-                  print('onChanged: $number');
+                  debugPrint('onChanged: $number');
                 },
                 onSaved: (number) {
                   setState(
@@ -443,9 +443,9 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(5)),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_SignupKey.currentState!.validate()) {
-                        showDialog(
+                        await showDialog(
                             context: context,
                             builder: (context) => BasicDialogJoin(
                                 '회원정보 수정에 성공했습니다.', () => _update()));
@@ -524,8 +524,8 @@ class _ModifyUserInfoState extends State<ModifyUserInfo> {
                             borderRadius: BorderRadius.circular(7),
                           ),
                         ),
-                        onPressed: () {
-                          UserService().deleteUser();
+                        onPressed: () async {
+                          await UserService().deleteUser();
                           Navigator.pop(context);
                         },
                         child: Text(
