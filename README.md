@@ -1,4 +1,8 @@
-![WatchOuT_Logo](/uploads/9ca0336067bf12a4e8ed0110bf61d728/WatchOuT_Logo.png "WatchOuT 로고")
+![WatchOuT_Logo](./images/WatchOuT_Logo.png "WatchOuT 로고")
+
+<a href='https://play.google.com/store/apps/details?id=com.ssafy.homealone&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="250"/></a>
+
+https://play.google.com/store/apps/details?id=com.ssafy.homealone
 
 ## 당신의 일상이 더욱 안전하고 즐겁게, WatchOuT!
 # 개요
@@ -95,13 +99,13 @@
 <img src="https://img.shields.io/badge/nginx-009639?style=for-the-badge&logo=NGINX&logoColor=white">
 
 # [와이어 프레임](https://www.figma.com/file/RYgyub2v7cD5SOX8sbwSho/WatchOut?node-id=0%3A1&t=1omgooS8BxJouK6U-0)
-![와이어 프레임](/uploads/0e1c77aeac71ddc1db23f43254493b1c/KakaoTalk_20221116_164041797.png)
+![와이어 프레임](./images/wire_frame.png)
 
 # [기능 명세서](https://docs.google.com/spreadsheets/d/1Rmz9WcaGeFQ0PJOm9KE1XvrQsQdp6v0D_ok7_yyYaC4/edit#gid=0)
-![기능 명세서](/uploads/2c7638340220f54b8d6a4c0a3f6ac4fe/image.png)
+![기능 명세서](./images/func_desc.png)
 
 # [API 명세서](https://docs.google.com/spreadsheets/d/1Rmz9WcaGeFQ0PJOm9KE1XvrQsQdp6v0D_ok7_yyYaC4/edit#gid=276985241)
-![API 명세서](/uploads/f7218ac86544b6f706c3fc5850d1bae6/image.png)
+![API 명세서](./images/api_desc.png)
 
 # 파일 위젯 트리
 ```bash
@@ -233,7 +237,7 @@ safeOpenBox
 <img src="https://img.shields.io/badge/E4804E-E4804E?style=for-the-badge&logo=&logoColor=white">
 
 # JIRA
-![JIRA](/uploads/56ca0065e4670930f8c03236a1df17da/image.png)
+![JIRA](./images/jira.png)
 
 # 기능별 화면
 |로그인 화면|
