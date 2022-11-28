@@ -298,7 +298,7 @@ safeOpenBox
 
 |친구 초대| | |
 |---------------|-|-|
-|<img src="./images/invite.jpg" width="250" height="500"/>|<img src="./images/invite2.jpg" width="250" height="500"/>|
+|<img src="./images/invite.png" width="250" height="500"/>|<img src="./images/invite2.png" width="250" height="500"/>|
 
 ### Gitmoji의 이모지
 
